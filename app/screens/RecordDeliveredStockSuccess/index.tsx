@@ -1,0 +1,169 @@
+import React, {useRef} from 'react';
+import {StyleSheet, View, StatusBar, TouchableOpacity} from 'react-native';
+import {TextComponent as Text, Header} from '@components';
+import LottieView from 'lottie-react-native';
+import {Images, ROUTES, currencyFormatter} from '@config';
+import {useNavigation} from '@react-navigation/native';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import {ClientContext} from '@context';
+import moment from 'moment';
+
+const RecordDeliveredStockSuccess = () => {
+  const animation = useRef();
+
+  const {weeklyDeliveriesDetails} = React.useContext(ClientContext);
+  const {navigate} = useNavigation();
+  //   console.log(expensesLossesDetails);
+  return (
+    <>
+      <Header
+        leftComponent={
+          <TouchableOpacity
+            onPress={() => {
+              navigate(ROUTES.Home);
+            }}>
+            <AntDesign name="home" color="white" size={30} />
+          </TouchableOpacity>
+        }
+      />
+
+      <View
+        style={{alignItems: 'center', justifyContent: 'center', height: '80%'}}>
+        <Text
+          style={[
+            {
+              fontSize: 14,
+
+              color: '#353B48',
+              textAlign: 'center',
+            },
+            styles.textLocation,
+            {fontSize: 20},
+          ]}>
+          {/* {expensesLossesDetails.type} Recorded Successfully */}
+        </Text>
+
+        <LottieView
+          ref={animation}
+          source={Images.success1}
+          autoPlay
+          loop
+          style={{height: 100, width: 100, alignSelf: 'center'}}
+        />
+        <Text
+          style={[
+            styles.textInfo,
+            styles.textLocation,
+            {marginVertical: 50, marginHorizontal: 30},
+          ]}>
+          You can go to history to check out your record on history and expenses
+        </Text>
+        <View style={{alignItems: 'center', width: '100%'}}>
+          <View
+            style={{
+              top: 50,
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              width: '90%',
+            }}>
+            <Text medium style={[styles.textInfo, styles.textLocation]}>
+              Transaction ID
+            </Text>
+            <View style={{width: '60%'}}>
+              <Text style={[styles.textInfo, styles.textLocation]}>
+                {weeklyDeliveriesDetails.transactionID}
+              </Text>
+            </View>
+          </View>
+
+          <View
+            style={{
+              top: 50,
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              width: '90%',
+            }}>
+            <Text medium style={[styles.textInfo, styles.textLocation]}>
+              Total Buying Amount
+            </Text>
+            <View style={{width: '60%'}}>
+              <Text style={[styles.textInfo, styles.textLocation]}>
+                {currencyFormatter(weeklyDeliveriesDetails.totalBuyingAmount)}
+              </Text>
+            </View>
+          </View>
+
+          <View
+            style={{
+              top: 50,
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              width: '90%',
+            }}>
+            <Text medium style={[styles.textInfo, styles.textLocation]}>
+              Total Selling Amount
+            </Text>
+            <View style={{width: '60%'}}>
+              <Text style={[styles.textInfo, styles.textLocation]}>
+                {currencyFormatter(weeklyDeliveriesDetails.totalSellingAmount)}
+              </Text>
+            </View>
+          </View>
+
+          <View
+            style={{
+              top: 50,
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              width: '90%',
+            }}>
+            <Text medium style={[styles.textInfo, styles.textLocation]}>
+              Generated Profit
+            </Text>
+            <View style={{width: '60%'}}>
+              <Text style={[styles.textInfo, styles.textLocation]}>
+                {currencyFormatter(
+                  weeklyDeliveriesDetails.weeklyDeliveredProfit,
+                )}
+              </Text>
+            </View>
+          </View>
+
+          <View
+            style={{
+              top: 50,
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              width: '90%',
+            }}>
+            <Text medium style={[styles.textInfo, styles.textLocation]}>
+              Date
+            </Text>
+            <View style={{width: '60%'}}>
+              <Text style={[styles.textInfo, styles.textLocation]}>
+                {moment(weeklyDeliveriesDetails.createdAt).format(
+                  'Do MMM YYYY , HH:mm',
+                )}
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </>
+  );
+};
+
+export default RecordDeliveredStockSuccess;
+
+const styles = StyleSheet.create({
+  textInfo: {
+    fontSize: 14,
+    lineHeight: 17,
+    color: '#353B48',
+    textAlign: 'center',
+  },
+  textLocation: {
+    color: '#7F8FA6',
+    marginTop: 8,
+  },
+});

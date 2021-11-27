@@ -1,0 +1,14 @@
+com/mlambo/ReactNativeFlipper.java
+ com.mlambo.ReactNativeFlipper
+ com.mlambo.ReactNativeFlipper$1
+ com.mlambo.ReactNativeFlipper$2
+ com.mlambo.ReactNativeFlipper$2$1
+com/mlambo/MainApplication.java
+ com.mlambo.MainApplication
+ com.mlambo.MainApplication$1
+com/mlambo/BuildConfig.java
+ com.mlambo.BuildConfig
+com/facebook/react/PackageList.java
+ com.facebook.react.PackageList
+com/mlambo/MainActivity.java
+ com.mlambo.MainActivity

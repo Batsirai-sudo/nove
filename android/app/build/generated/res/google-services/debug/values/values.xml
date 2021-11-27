@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">296269615076-sel4qs34esd24bnonsrsqv7ka313hta3.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">296269615076</string>
+    <string name="google_api_key" translatable="false">AIzaSyACnY7eQGdr1h8mWZMgaVkElrfqxdw40q4</string>
+    <string name="google_app_id" translatable="false">1:296269615076:android:73294bff40fc3695a941f1</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyACnY7eQGdr1h8mWZMgaVkElrfqxdw40q4</string>
+    <string name="google_storage_bucket" translatable="false">mlambo-s-investments.appspot.com</string>
+    <string name="project_id" translatable="false">mlambo-s-investments</string>
+</resources>

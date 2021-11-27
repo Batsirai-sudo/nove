@@ -1,0 +1,8 @@
+<resources>
+<string name="app_name">instore</string>
+<string name="facebook_app_id">454939302165356</string>
+<string name="appCenterCrashes_whenToSendCrashes" moduleConfig="true" translatable="false">DO_NOT_ASK_JAVASCRIPT</string>
+<string name="appCenterAnalytics_whenToEnableAnalytics" moduleConfig="true" translatable="false">ALWAYS_SEND</string>
+     <string moduleConfig="true" name="CodePushDeploymentKey">9fDxSPS9H8E-HjwPyr9x-fQERr8wqguiyYPpi</string>
+
+</resources>

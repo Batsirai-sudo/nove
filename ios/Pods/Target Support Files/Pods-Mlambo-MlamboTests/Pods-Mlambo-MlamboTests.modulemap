@@ -1,0 +1,6 @@
+module Pods_Mlambo_MlamboTests {
+  umbrella header "Pods-Mlambo-MlamboTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

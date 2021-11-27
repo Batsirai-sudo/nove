@@ -1,0 +1,238 @@
+// import React, {useState} from 'react';
+// import {createStackNavigator} from '@react-navigation/stack';
+// import AdminHome from '@admin/Home';
+// import AdminProfile from '@admin/Profile';
+// import Search from '@admin/Search';
+// import Shops from '@admin/Shops';
+// import Orders from '@admin/Orders';
+// import {ROUTES} from '@config';
+// import {AdminProvider} from '../context/adminContext';
+// import {AnimatedTabBarNavigator} from 'react-native-animated-nav-tab-bar';
+// import Icon from 'react-native-vector-icons/AntDesign';
+// import {SvgHomeTab, SvgSeach, SvgProfile, SvgUsers} from '@svg-components';
+// import {
+//   createDrawerNavigator,
+//   DrawerContentScrollView,
+//   DrawerItem,
+// } from '@react-navigation/drawer';
+// import {Button, View, Text, StyleSheet} from 'react-native';
+// import LinearGradient from 'react-native-linear-gradient';
+// import Animated from 'react-native-reanimated';
+// import {TouchableOpacity} from 'react-native-gesture-handler';
+
+// const Tabs = AnimatedTabBarNavigator();
+
+// const AdminStack = () => {
+//   return (
+//     <AdminProvider>
+//       <Tabs.Navigator
+//         // default configuration from React Navigation
+//         // headerMode="none"
+//         initialRouteName={ROUTES.AdminHome}
+//         screenOptions={{}}
+//         appearence={{
+//           floating: true,
+//         }}
+//         tabBarOptions={{
+//           activeTintColor: '#F05F3E',
+//           inactiveTintColor: '#222222',
+//           activeBackgroundColor: '#DAE1E7',
+//           tabStyle: {top: -40},
+//         }}>
+//         <Tabs.Screen
+//           name="MyDrawer"
+//           component={MyDrawer}
+//           options={{
+//             gestureEnabled: false,
+//             tabBarLabel: 'Home4',
+//             tabBarIcon: ({focused, color, size}) => (
+//               <SvgHomeTab color={focused ? color : '#222222'} />
+//               //  <SvgTabPlanInactive color={color} />
+
+//               // <Icon
+//               //   name="user"
+//               //   size={size ? size : 24}
+//               //   color={focused ? color : '#222222'}
+//               //   focused={focused}
+//               //   color="red"
+//               // />
+//             ),
+//           }}
+//         />
+//         <Tabs.Screen
+//           name={ROUTES.Search}
+//           component={Search}
+//           options={{
+//             gestureEnabled: false,
+//             tabBarLabel: 'Search',
+//             tabBarIcon: ({focused, color, size}) => (
+//               <SvgSeach color={focused ? color : '#222222'} />
+//             ),
+//           }}
+//         />
+//         <Tabs.Screen
+//           name={ROUTES.Shops}
+//           component={Shops}
+//           options={{
+//             gestureEnabled: false,
+//             tabBarLabel: 'Shops',
+//             tabBarIcon: ({focused, color, size}) => (
+//               <SvgUsers color={focused ? color : '#222222'} />
+//             ),
+//           }}
+//         />
+//         <Tabs.Screen
+//           name={ROUTES.AdminProfile}
+//           component={AdminProfile}
+//           options={{
+//             gestureEnabled: false,
+//             tabBarLabel: 'Profile',
+//             tabBarIcon: ({focused, color, size}) => (
+//               <SvgProfile color={focused ? color : '#222222'} />
+//             ),
+//           }}
+//         />
+//       </Tabs.Navigator>
+//     </AdminProvider>
+//   );
+// };
+
+// export default AdminStack;
+
+// const Drawer = createDrawerNavigator();
+
+// const Stack = createStackNavigator();
+
+// const Screens = ({navigation, style}) => {
+//   return (
+//     <Animated.View style={StyleSheet.flatten([styles.stack, style])}>
+//       <Stack.Navigator
+//         screenOptions={{
+//           headerTransparent: true,
+//           headerTitle: null,
+//           headerLeft: () => (
+//             <Icon
+//               style={{left: 15}}
+//               onPress={() => navigation.openDrawer()}
+//               name="menu-unfold"
+//               size={24}
+//               color="black"
+//             />
+//           ),
+//         }}>
+//         <Drawer.Screen name="AdminHome" component={AdminHome} />
+//         <Drawer.Screen name="Orders" component={Orders} />
+//       </Stack.Navigator>
+//     </Animated.View>
+//   );
+// };
+
+// const DrawerContent = (props) => {
+//   return (
+//     <DrawerContentScrollView
+//       {...props}
+//       scrollEnabled={false}
+//       contentContainerStyle={{flex: 1}}>
+//       <Text>vhkkjvkvjkvkj</Text>
+//     </DrawerContentScrollView>
+//   );
+// };
+
+// export const MyDrawer = () => {
+//   const [progress, setProgress] = React.useState(new Animated.Value(0));
+//   const scale = Animated.interpolate(progress, {
+//     inputRange: [0, 1],
+//     outputRange: [1, 0.8],
+//   });
+//   const borderRadius = Animated.interpolate(progress, {
+//     inputRange: [0, 1],
+//     outputRange: [0, 16],
+//   });
+
+//   const animatedStyle = {borderRadius, transform: [{scale}]};
+
+//   return (
+//     <LinearGradient style={{flex: 1}} colors={['#ED3269', '#F05F3E']}>
+//       <Drawer.Navigator
+//         // hideStatusBar
+//         drawerType="slide"
+//         overlayColor="transparent"
+//         drawerStyle={styles.drawerStyles}
+//         contentContainerStyle={{flex: 1}}
+//         drawerContentOptions={{
+//           activeBackgroundColor: 'transparent',
+//           activeTintColor: 'white',
+//           inactiveTintColor: 'white',
+//         }}
+//         sceneContainerStyle={{backgroundColor: 'transparent'}}
+//         drawerContent={(props) => {
+//           setProgress(props.progress);
+//           return <DrawerContent {...props} />;
+//         }}>
+//         <Drawer.Screen name="Screens">
+//           {(props) => <Screens {...props} style={animatedStyle} />}
+//         </Drawer.Screen>
+//       </Drawer.Navigator>
+//     </LinearGradient>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   stack: {
+//     flex: 1,
+//     shadowColor: '#FFF',
+//     shadowOffset: {
+//       width: 0,
+//       height: 8,
+//     },
+//     shadowOpacity: 0.44,
+//     shadowRadius: 10.32,
+//     elevation: 5,
+//     // overflow: 'scroll',
+//     // borderWidth: 1,
+//   },
+//   drawerStyles: {flex: 1, width: '50%', backgroundColor: 'transparent'},
+//   drawerItem: {alignItems: 'flex-start', marginVertical: 0},
+//   drawerLabel: {color: 'white', marginLeft: -16},
+//   avatar: {
+//     borderRadius: 60,
+//     marginBottom: 16,
+//     borderColor: 'white',
+//     borderWidth: StyleSheet.hairlineWidth,
+//   },
+// });
+
+
+import React, {memo, useCallback} from 'react';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import {ROUTES} from '@config';
+import Messages from '@admin/Messages';
+import Profile from '@admin/Profile';
+import BroadCastMessaging from '@admin/BroadCastMessaging';
+import {useNavigation} from '@react-navigation/native';
+
+const Tab = createMaterialTopTabNavigator();
+
+const ProfileTopTab = memo(() => {
+  return (
+    <Tab.Navigator
+      initialRouteName={ROUTES.Profile}
+      tabBarOptions={{
+        activeTintColor: '#ED3269',
+        inactiveTintColor: '#7F8FA6',
+        indicatorStyle: {
+          backgroundColor: '#ED3269',
+        },
+      }}>
+      <Tab.Screen name={ROUTES.Profile} component={Profile} />
+      <Tab.Screen name={ROUTES.Messages} component={Messages} />
+      <Tab.Screen
+        name={ROUTES.BroadCastMessaging}
+        component={BroadCastMessaging}
+        options={{tabBarLabel: 'Broad'}}
+      />
+    </Tab.Navigator>
+  );
+});
+
+export default ProfileTopTab;

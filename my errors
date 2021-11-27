@@ -1,0 +1,55 @@
+Error : Error in getting binary resources modified time
+Solution :   resValue 'string', "CODE_PUSH_APK_BUILD_TIME", String.format("\"%d\"", System.currentTimeMillis())
+
+
+
+////////////////////////////////
+  Setting a timer for a long period of time, i.e. multiple minutes, is a performance and correctness issue on Android as it keeps the timer module awake, and timers can only be called when the app is in the foreground. See https://github.com/facebook/react-native/issues/12981 for more info.
+(Saw setTimeout with duration 100000ms)
+[Sun May 16 2021 14:10:08.822]  GROUP  ..  %c action %cpersist/PERSIST %c@ 14:10:01.321 color: gray; font-weight: lighter; color: inherit; color: gray; font-weight: lighter;
+[Sun May 16 2021 14:10:08.823]  LOG    ..  %c prev state color: #9E9E9E; font-weight: bold {"admin": {"activeStockTakingID": "", "batchOrder": {}, "clientsRequestOrders": [], "deliveries": [], "order": "", "sellCarts": [], "writtenStock": []}, "application": {"font": null, "force_dark": null, "language": null, "theme": null}, "auth": {"banking": {}, "error": "", "fetchloading": false, "isAdmin_Client": false, "isMessaging": false, "isSignedIn": false, "login": {"success": false}, "province": "", "registration": {"error": false, "start": false, "success": false}, "statistics": {}, "street_address": "", "town": "", "user": {}, "userid": ""}}
+[Sun May 16 2021 14:10:08.824]  LOG    ..  %c action     color: #03A9F4; font-weight: bold {"register": [Function register], "rehydrate": [Function rehydrate], "type": "persist/PERSIST"}
+[Sun May 16 2021 14:10:08.824]  LOG    ..  %c next state color: #4CAF50; font-weight: bold {"_persist": {"rehydrated": false, "version": -1}, "admin": {"activeStockTakingID": "", "batchOrder": {}, "clientsRequestOrders": [], "deliveries": [], "order": "", "sellCarts": [], "writtenStock": []}, "application": {"font": null, "force_dark": null, "language": null, "theme": null}, "auth": {"banking": {}, "error": "", "fetchloading": false, "isAdmin_Client": false, "isMessaging": false, "isSignedIn": false, "login": {"success": false}, "province": "", "registration": {"error": false, "start": false, "success": false}, "statistics": {}, "street_address": "", "town": "", "user": {}, "userid": ""}}
+[Sun May 16 2021 14:10:08.824]  WARN     Require cycle: app\config\index.ts -> app\config\resetingRoutes.ts -> app\config\index.ts
+
+Require cycles are allowed, but can result in uninitialized values. Consider refactoring to remove the need for a cycle.
+[Sun May 16 2021 14:10:08.825]  WARN     Require cycle: app\config\index.ts -> app\config\pointOfSell.ts -> app\config\index.ts
+
+Require cycles are allowed, but can result in uninitialized values. Consider refactoring to remove the need for a cycle.
+[Sun May 16 2021 14:10:08.825]  WARN     Require cycle: app\actions\index.js -> app\actions\authActionCreaters.js -> app\actions\index.js
+
+Require cycles are allowed, but can result in uninitialized values. Consider refactoring to remove the need for a cycle.
+[Sun May 16 2021 14:10:08.825]  WARN     Require cycle: node_modules\react-native-elements\dist\list\ListItem.js -> node_modules\react-native-elements\dist\list\ListItemAccordion.js -> node_modules\react-native-elements\dist\list\ListItem.js
+
+Require cycles are allowed, but can result in uninitialized values. Consider refactoring to remove the need for a cycle.
+[Sun May 16 2021 14:10:08.826]  WARN     Require cycle: app\components\index.ts -> app\components\LoginInputField\index.tsx -> app\components\index.ts
+
+Require cycles are allowed, but can result in uninitialized values. Consider refactoring to remove the need for a cycle.
+[Sun May 16 2021 14:10:08.826]  WARN     BSON: For React Native please polyfill crypto.getRandomValues, e.g. using: https://www.npmjs.com/package/react-native-get-random-values.
+[Sun May 16 2021 14:10:08.826]  WARN     Require cycle: node_modules\rn-fetch-blob\index.js -> node_modules\rn-fetch-blob\polyfill\index.js -> node_modules\rn-fetch-blob\polyfill\Blob.js -> node_modules\rn-fetch-blob\index.js
+
+Require cycles are allowed, but can result in uninitialized values. Consider refactoring to remove the need for a cycle.
+[Sun May 16 2021 14:10:08.827]  WARN     Require cycle: node_modules\rn-fetch-blob\index.js -> node_modules\rn-fetch-blob\polyfill\index.js -> node_modules\rn-fetch-blob\polyfill\XMLHttpRequest.js -> node_modules\rn-fetch-blob\index.js
+
+Require cycles are allowed, but can result in uninitialized values. Consider refactoring to remove the need for a cycle.
+[Sun May 16 2021 14:10:08.827]  WARN     Require cycle: node_modules\rn-fetch-blob\index.js -> node_modules\rn-fetch-blob\polyfill\index.js -> node_modules\rn-fetch-blob\polyfill\Fetch.js -> node_modules\rn-fetch-blob\index.js
+
+Require cycles are allowed, but can result in uninitialized values. Consider refactoring to remove the need for a cycle.
+[Sun May 16 2021 14:10:08.827]  LOG      Running "instore" with {"rootTag":1}
+[Sun May 16 2021 14:10:08.828]  GROUP  ..  %c action %cpersist/REHYDRATE %c@ 14:10:09.565 color: gray; font-weight: lighter; color: inherit; color: gray; font-weight: lighter;
+[Sun May 16 2021 14:10:08.828]  LOG    ..  %c prev state color: #9E9E9E; font-weight: bold {"_persist": {"rehydrated": false, "version": -1}, "admin": {"activeStockTakingID": "", "batchOrder": {}, "clientsRequestOrders": [], "deliveries": [], "order": "", "sellCarts": [], "writtenStock": []}, "application": {"font": null, "force_dark": null, "language": null, "theme": null}, "auth": {"banking": {}, "error": "", "fetchloading": false, "isAdmin_Client": false, "isMessaging": false, "isSignedIn": false, "login": {"success": false}, "province": "", "registration": {"error": false, "start": false, "success": false}, "statistics": {}, "street_address": "", "town": "", "user": {}, "userid": ""}}
+[Sun May 16 2021 14:10:08.828]  LOG    ..  %c action     color: #03A9F4; font-weight: bold {"err": undefined, "key": "root", "payload": undefined, "type": "persist/REHYDRATE"}
+[Sun May 16 2021 14:10:08.829]  LOG    ..  %c next state color: #4CAF50; font-weight: bold {"_persist": {"rehydrated": true, "version": -1}, "admin": {"activeStockTakingID": "", "batchOrder": {}, "clientsRequestOrders": [], "deliveries": [], "order": "", "sellCarts": [], "writtenStock": []}, "application": {"font": null, "force_dark": null, "language": null, "theme": null}, "auth": {"banking": {}, "error": "", "fetchloading": false, "isAdmin_Client": false, "isMessaging": false, "isSignedIn": false, "login": {"success": false}, "province": "", "registration": {"error": false, "start": false, "success": false}, "statistics": {}, "street_address": "", "town": "", "user": {}, "userid": ""}}
+[Sun May 16 2021 14:10:08.950]  LOG      [CodePush] Checking for update.
+[Sun May 16 2021 14:10:09.600]  LOG      [CodePush] Reporting binary update (1.0.4)
+[Sun May 16 2021 14:10:25.829]  LOG      [CodePush] Downloading package.
+
+
+
+
+
+
+
+
+
+////////////////////////////////

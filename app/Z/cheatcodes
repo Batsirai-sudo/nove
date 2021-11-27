@@ -1,0 +1,54 @@
+./gradlew assembleRelease
+./gradlew bundleRelease
+react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res
+For latest react native versions to bundle the project
+
+Android
+
+react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/
+
+iOS
+
+react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios
+https://stackoverflow.com/questions/35935060/how-can-i-generate-an-apk-that-can-run-without-server-with-react-native
+
+cd android && ./gradlew clean app:assembleRelease -x bundleReleaseJsAndAssets
+
+appcenter codepush release-react -a much.batsy-gmail.com/instore -d Production
+
+Running "react-native bundle" command:
+
+node node_modules/.bin/react-native bundle --assets-dest /var/folders/5v/3g8qwyg117lcc1rdlzq8g7sm0000gn/T/code-push2021231-5316-mzflwd.in2o/CodePush --bundle-output /var/folders/5v/3g8qwyg117lcc1rdlzq8g7sm0000gn/T/code-push2021231-5316-mzflwd.in2o/CodePush/index.android.bundle --dev false --entry-file index.js --platform android
+
+import {ObjectId} from 'bson';
+
+class Task {
+  constructor({
+    name,
+    partition,
+    status = Task.STATUS_OPEN,
+    id = new ObjectId(),
+  }) {
+    this._partition = partition;
+    this._id = id;
+    this.name = name;
+    this.status = status;
+  }
+
+  static STATUS_OPEN = 'Open';
+  static STATUS_IN_PROGRESS = 'InProgress';
+  static STATUS_COMPLETE = 'Complete';
+
+  static schema = {
+    name: 'Task',
+    properties: {
+      _id: 'objectId',
+      _partition: 'string',
+      name: 'string',
+      status: 'string',
+    },
+    primaryKey: '_id',
+  };
+}
+
+export {Task};

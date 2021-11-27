@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "296269615076",
+    "project_id": "mlambo-s-investments",
+    "storage_bucket": "mlambo-s-investments.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:296269615076:android:73294bff40fc3695a941f1",
+        "android_client_info": {
+          "package_name": "com.mlambo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "296269615076-hnc0q1nnfu491nv9lkkpeknq2jk6seg5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mlambo",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "296269615076-sel4qs34esd24bnonsrsqv7ka313hta3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACnY7eQGdr1h8mWZMgaVkElrfqxdw40q4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "296269615076-sel4qs34esd24bnonsrsqv7ka313hta3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
